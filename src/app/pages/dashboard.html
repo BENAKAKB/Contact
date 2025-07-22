@@ -1,0 +1,17 @@
+<div class="min-h-screen bg-slate-900 p-8 text-gray-100">
+  <h1 class="text-4xl font-extrabold mb-8 drop-shadow-lg text-center text-teal-300">
+    Welcome to the Dashboard 🎉
+  </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    <!-- Add Contact -->
+    <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700">
+      <app-add-contact></app-add-contact>
+    </div>
+
+    <!-- Contact List -->
+    <div class="bg-slate-800 rounded-lg p-6 shadow-md border border-slate-700 max-h-[600px] overflow-auto">
+      <app-contact-list></app-contact-list>
+    </div>
+  </div>
+</div>

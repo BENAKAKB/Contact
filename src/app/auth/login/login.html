@@ -1,0 +1,49 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 px-4">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6 p-8 max-w-md w-full bg-slate-800 rounded-xl shadow-2xl text-white">
+    <h2 class="text-3xl font-bold text-center text-teal-300 mb-6">Login to Your Account</h2>
+
+    <div>
+      <label for="email" class="block text-teal-200 font-medium mb-1">Email</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        placeholder="you@example.com"
+        class="w-full p-3 bg-slate-700 text-teal-100 placeholder-teal-400 border border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400"
+      />
+      <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-red-400 text-sm mt-1">
+        <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+        <div *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="password" class="block text-teal-200 font-medium mb-1">Password</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        placeholder="********"
+        class="w-full p-3 bg-slate-700 text-teal-100 placeholder-teal-400 border border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400"
+      />
+      <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-red-400 text-sm mt-1">
+        <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+      </div>
+    </div>
+
+    <div *ngIf="error" class="text-red-400 font-semibold text-center">{{ error }}</div>
+
+    <button
+      type="submit"
+      [disabled]="loginForm.invalid"
+      class="w-full bg-teal-500 hover:bg-teal-600 disabled:bg-teal-300 text-slate-900 font-bold py-3 rounded-md transition"
+    >
+      Login
+    </button>
+
+    <p class="text-center text-slate-300 mt-4">
+      Don't have an account?
+      <a routerLink="/signup" class="text-teal-300 hover:underline font-semibold">Sign up here</a>
+    </p>
+  </form>
+</div>
